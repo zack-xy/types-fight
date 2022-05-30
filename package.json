@@ -1,0 +1,23 @@
+{
+  "name": "types-fight",
+  "version": "1.0.0",
+  "description": "types challenges",
+  "keywords": [
+    "TypeScript"
+  ],
+  "license": "ISC",
+  "author": "Zack Zheng",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZackZheng-xy/types-fight.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "bugs": {
+    "url": "https://github.com/ZackZheng-xy/types-fight/issues"
+  },
+  "homepage": "https://github.com/ZackZheng-xy/types-fight#readme"
+}
