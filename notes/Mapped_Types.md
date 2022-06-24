@@ -101,7 +101,7 @@ type User = {
 // key也可以重命名
 // Capitalize是TS自带的，大写首字母
 type Getters<Type> = {
-	[Property in keyof Type as `get${Capitalize<string Property>}`]
+	[Property in keyof Type as `get${Capitalize<string Property>}`]: () => Type[Property]
 }
 
 interface Person {
