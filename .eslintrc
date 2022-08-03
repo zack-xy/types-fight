@@ -1,4 +1,6 @@
 {
   "extends": "@antfu",
-  "no-unused-vars": "off"
+  "rules": {
+    "no-unused-vars": ["warning", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
+  }
 }
