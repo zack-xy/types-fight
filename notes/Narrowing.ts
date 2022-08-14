@@ -106,7 +106,6 @@ function example3 () {
 }
 
 
-
 // Using type predicates
 // pet is Fish is our type predicate
 // A predicate takes the form `paramterName is Type`
