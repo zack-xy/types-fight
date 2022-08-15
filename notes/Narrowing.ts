@@ -122,3 +122,19 @@ const underWater3: Fish[] = zoo.filter((pet):pet is Fish => {
   if(pet.name === 'sharkey') return false
   return isFish(pet)
 })
+
+
+// The `never` type
+type Shape = Circle | Square
+
+function getArea(shape: Shape) {
+  switch(shape.kind) {
+    case "circle": 
+      return Math.PI * shape.radius ** 2
+    case "square":
+      return shape.sideLength ** 2
+    default:
+      const _exhaustiveCheck: never = shape
+      return _exhaustiveCheck
+  }
+}
