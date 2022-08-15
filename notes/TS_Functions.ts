@@ -95,3 +95,66 @@ const longerArray = longer([1,2],[1,2,3])
 const longerString = longer('alice','bob')
 // Error! Numbers don't have a 'length' property
 const notOK = longer(10,100)
+
+
+// common error when working with generic constraints
+function minimumLength<Type extends {length: number}>(
+  obj: Type,
+  minimum: number
+): Type {
+  if(obj.length >= minimum) {
+    return obj
+  } else {
+    return {length: minimum}
+  }
+}
+
+function combine<Type>(arr1: Type[],arr2: Type[]): Type[] {
+  return arr1.concat(arr2)
+}
+
+const srr = combine<string | number>([1,2,3],['hello'])
+
+
+// Guidelines for Writiting Good Generic Functions
+// 1.Push Type Parameters Down
+// Rule: When possible, use the type paramter itself rather than constraining it
+function firstElement3<Type>(arr: Type[]) {
+  return arr[0]
+}
+
+function firstElement4<Type extends any[]>(arr: Type) {
+  return arr[0]
+}
+
+// a: number (good)
+const a2 = firstElement3([1,2,4])
+// b: any(bad)
+const b2 = firstElement4([1,2,3])
+
+
+// 2. Use Fewer Type Parameters
+// Rule: Always use as few type parameters as possible
+function filter2<Type>(arr: Type[], func:(arg: Type) => boolean): Type[] {
+  return arr.filter(func)
+}
+
+function filter3<Type, Func extends (arg: Type)=> boolean> (
+  arr: Type[],
+  func: Func
+): Type[] {
+  return arr.filter(func)
+}
+
+
+// might not need to be generic
+function greet<Str extends string>(s: Str) {
+  console.log('Hello, ' + s)
+}
+
+
+// simpler version
+// Rule: if a type paramter only appears in one location, strongly reconsider if you actually need it
+function greet2(s: string) {
+  console.log('Hello, ' + s)
+}
