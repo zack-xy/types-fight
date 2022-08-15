@@ -158,3 +158,25 @@ function greet<Str extends string>(s: Str) {
 function greet2(s: string) {
   console.log('Hello, ' + s)
 }
+
+
+// Optional Parameters in Callbacks
+function myForEach(arr: any[], callback: (arg: any, index?: number) => void) {
+  for(let i = 0;i<arr.length;i++) {
+    callback(arr[i],i)
+  }
+}
+
+// all legal
+myForEach([1,2,4],(a)=>console.log(a))
+myForEach([1,2,3],(a,i)=>console.log(a,i))
+
+function myForEach2(arr: any[], callback:(arg: any, index?:number) => void) {
+  for(let i = 0;i<arr.length;i++) {
+    callback(arr[i])
+  }
+}
+
+myForEach2([1,2,3], (a,i)=> {
+  console.log(i.toFixed())
+})
