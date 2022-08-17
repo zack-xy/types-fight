@@ -5,7 +5,7 @@ interface PaintOptions {
 }
 
 function paintShape(opts: PaintOptions) {
-  // some codes
+  // ...
 }
 
 const shape = getShape()
