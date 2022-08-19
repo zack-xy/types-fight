@@ -9,8 +9,6 @@ function printToConsole(s:string){
 
 greeter(printToConsole)
 
-
-
 // type alias
 type GreetFunction = (a:string) => void
 function greeter2(fn: GreetFunction) {
